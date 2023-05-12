@@ -1,0 +1,20 @@
+LMC:
+    coords: [79.5135633, -68.5271292]
+    region_type: circle
+    frame: icrs
+    region_params:
+        r: 5.0
+    priority: 30
+    observatory: LCO
+    telescope: LVM-160
+    max_airmass: 2.00
+    min_shadowheight: 1.0
+    exptime: 1200
+    n_exposures: 9
+    min_exposures: 3
+    min_moon_dist: 45
+    max_lunation: 0.25
+    overhead: 1.1
+    tiling_strategy: center_first
+    tile_overlap: 0.0416
+    group: ["MCs"]
