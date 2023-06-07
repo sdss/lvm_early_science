@@ -9,7 +9,7 @@ Python version: 3.9
 
 Notes: currently set up to use MoonSeparationConstraint and MoonIlluminationConstraint; can change to custom MoonSkyBrightnessConstraint by switching what's commented out
 
-To-do: add stellar pops early science targets
+running with plotting off recommended for large date range
 
 Run as:
 [] ipython
@@ -143,7 +143,7 @@ for i in range(len(targets)):
 observability_table = observability_table(constraints, lvmi, targets, time_range=time_range)
 print(observability_table)
 
-def target_observability(target, constraints, observe_time, figure_path):
+def target_observability(target, constraints, observe_time, figure_path, make_plots):
     """
     Evaluate/plot the observability of the specified target given the constraints
     Inputs:
@@ -151,6 +151,7 @@ def target_observability(target, constraints, observe_time, figure_path):
     constraints: list of Astroplan constraints to be evaluated
     observe_time : time_grid over which to evaluate the constraints
     figure_path : directory in which to save the figure
+    make_plots: boolean ; if True make and save plot of when each constraint is met
     Returns:
     observability_grid : grid of observability for each constraint
     observability_plot : plots value of each constraint for the target over the specified range of time
@@ -167,26 +168,27 @@ def target_observability(target, constraints, observe_time, figure_path):
             times_observable[i]=0
 
     # Create plot showing observability of the target:
-    extent = [-0.5, -0.5+len(observe_time), -0.5, n_constraints-0.5]
-    fig=plt.figure(target.name, figsize=(14,5))
-    ax = fig.subplots()
-    ax.set_title(target.name)
-    ax.imshow(observability_grid, extent=extent)
-    ax.set_yticks(range(0, n_constraints))
-    ylabels=[c.__class__.__name__ for c in constraints]
-    ax.set_yticklabels(ylabels[::-1])
-    ax.set_xticks(range(len(observe_time)))
-    ax.set_xticklabels([t.to_datetime(timezone=utc_minus_four_hours).strftime("%H:%M") for t in observe_time])
-    ax.set_xticks(np.arange(extent[0], extent[1]), minor=True)
-    ax.set_yticks(np.arange(extent[2], extent[3]), minor=True)
-    ax.grid(which='minor', color='w', linestyle='-', linewidth=2)
-    ax.tick_params(axis='x', which='minor', bottom='off')
-    plt.setp(ax.get_xticklabels(), rotation=30, ha='right')
-    ax.tick_params(axis='y', which='minor', left='off')
-    ax.set_xlabel('Time on {0} CLT'.format(observe_time[0].to_datetime(timezone=utc_minus_four_hours).date()))
-    fig.subplots_adjust(left=0.148, right=0.979, top=0.99, bottom=0.1)
-    plt.savefig(str(figure_path)+'/'+str(target.name)+'_constraint_plot.png', bbox_inches='tight')
-    plt.close()
+    if make_plots:
+        extent = [-0.5, -0.5+len(observe_time), -0.5, n_constraints-0.5]
+        fig=plt.figure(target.name, figsize=(14,5))
+        ax = fig.subplots()
+        ax.set_title(target.name)
+        ax.imshow(observability_grid, extent=extent)
+        ax.set_yticks(range(0, n_constraints))
+        ylabels=[c.__class__.__name__ for c in constraints]
+        ax.set_yticklabels(ylabels[::-1])
+        ax.set_xticks(range(len(observe_time)))
+        ax.set_xticklabels([t.to_datetime(timezone=utc_minus_four_hours).strftime("%H:%M") for t in observe_time])
+        ax.set_xticks(np.arange(extent[0], extent[1]), minor=True)
+        ax.set_yticks(np.arange(extent[2], extent[3]), minor=True)
+        ax.grid(which='minor', color='w', linestyle='-', linewidth=2)
+        ax.tick_params(axis='x', which='minor', bottom='off')
+        plt.setp(ax.get_xticklabels(), rotation=30, ha='right')
+        ax.tick_params(axis='y', which='minor', left='off')
+        ax.set_xlabel('Time on {0} CLT'.format(observe_time[0].to_datetime(timezone=utc_minus_four_hours).date()))
+        fig.subplots_adjust(left=0.148, right=0.979, top=0.99, bottom=0.1)
+        plt.savefig(str(figure_path)+'/'+str(target.name)+'_constraint_plot.png', bbox_inches='tight')
+        plt.close()
 
     return observability_grid, times_observable
 
