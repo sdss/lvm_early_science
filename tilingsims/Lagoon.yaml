@@ -1,0 +1,21 @@
+Lagoon:
+  coords: [6, -1.2]
+  region_type: rectangle
+  frame: galactic
+  region_params:
+    width: 1.2
+    height: 1.0
+    pa: 0
+  priority: 9
+  observatory: LCO
+  telescope: LVM-160
+  max_airmass: 1.75
+  min_shadowheight: 1000.0
+  exptime: 900
+  n_exposures: 1
+  min_exposures: 1
+  min_moon_dist: 60
+  max_lunation: 1.0
+  overhead: 1.1
+  tiling_strategy: lowest_airmass
+  tile_overlap: 0.02416
