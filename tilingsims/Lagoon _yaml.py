@@ -10,7 +10,7 @@ data = {
         'region_type': 'rectangle',
         'frame': 'galactic',
         'region_params': {
-            'width': 1.5,
+            'width': 1.2,
             'height': 1.0,
             'pa': 0
                           },
@@ -26,7 +26,7 @@ data = {
         'max_lunation': 1.0,
         'overhead': 1.1,
         'tiling_strategy': 'lowest_airmass',
-        'tile_overlap': 0.0416
+        'tile_overlap': 0.02416
                 }
         }
         
