@@ -6,7 +6,7 @@ import yaml
 
 data = {
     'Lagoon': {
-        'coords': '[271.027, -24.321]',
+        'coords': '[6, -1.2]',
         'region_type': 'rectangle',
         'frame': 'galactic',
         'region_params': {
