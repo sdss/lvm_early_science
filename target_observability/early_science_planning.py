@@ -209,11 +209,12 @@ for time in date_array:
     sunrise_tonight = lvmi.sun_rise_time(time, which='nearest')
     obs_date=sunset_tonight.to_datetime(timezone=utc_minus_four_hours).strftime("%b-%d-%Y")
     figure_path = "obs_constraint_plots/"+str(obs_date)
-    # Check whether the specified path exists or not
-    isExist = os.path.exists(figure_path)
-    if not isExist:
-        # Create a new directory because it does not exist
-        os.makedirs(figure_path)
+    if plotting:
+        # Check whether the specified path exists or not
+        isExist = os.path.exists(figure_path)
+        if not isExist:
+            # Create a new directory because it does not exist
+            os.makedirs(figure_path)
 
     ##generate plots of observability
     delta_t = sunrise_tonight - sunset_tonight
@@ -223,7 +224,7 @@ for time in date_array:
     obs_times = [] #array of booleans for each time window/target specifying whether all constraints are met
     for i in range(len(targets)):
         #print(targets[i].name)
-        grids, windows = target_observability(targets[i], constraints_indiv_targets[i], observe_time, figure_path)
+        grids, windows = target_observability(targets[i], constraints_indiv_targets[i], observe_time, figure_path, plotting)
         obs_grids.append(grids)
         obs_times.append(windows)
 
