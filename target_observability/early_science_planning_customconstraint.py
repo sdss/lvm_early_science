@@ -217,10 +217,16 @@ for time in date_array:
     total_observable_targets = dict()
     for i in range(len(time_list)):
         observable_targets=[]
+        target_priority=[]
         for j in range(len(targets)):
             if obs_times[j][i]==1:
                 observable_targets.append(targets[j].name)
-                total_observable_targets[time_list[i]]=observable_targets
+                target_priority.append(target_table["priority"][j])
+        #sort targets by priority
+        idx = np.argsort(target_priority)
+        observable_targets = np.array(observable_targets)[idx] #convert to array to sort by idx
+        total_observable_targets[time_list[i]]=list(observable_targets) #convert back to list to save in dictionary
+
                 #print(total_observable_targets)
     #save to one file with a sheet for each night
     ws=wb.create_sheet(str(obs_date)) #add sheet at end
