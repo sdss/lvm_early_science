@@ -1,0 +1,29 @@
+## LVM ES Targets to overlay on Finkbeiner map
+## https://faun.rc.fas.harvard.edu/dfink/skymaps/halpha/data/v1_1/maps/Halpha_map.fits
+fk5; circle  15.1753 -71.5201 0.2500 # text={AV255}
+fk5; circle  17.0746 -71.9984 0.2500 # text={AV435}
+fk5; circle  80.5833 -67.9583 0.2500 # text={N44}
+fk5; circle  82.1889 -66.2367 0.2500 # text={NGC1978}
+fk5; circle  84.6750 -69.0986 0.2500 # text={30Dor}
+fk5; circle 103.5542 -23.9283 0.2500 # text={S308}
+fk5; circle 134.8625 -43.7372 0.2500 # text={RCW36}
+fk5; circle 134.9500 -45.9883 0.2500 # text={Pencil}
+fk5; circle 154.2583 -57.9128 0.2500 # text={NGC3199}
+fk5; circle 201.6970 -47.4795 0.2500 # text={OmegaCen}
+fk5; circle 220.2500 -62.5833 0.2500 # text={RCW86}
+fk5; circle 221.2350 -59.8556 0.2500 # text={G316.75}
+fk5; circle 270.6268 -22.9874 0.2500 # text={M20W28-1}
+fk5; circle 270.2559 -23.1873 0.2500 # text={M20W28-2}
+fk5; circle 269.8838 -23.3863 0.2500 # text={M20W28-3}
+fk5; circle 270.2580 -23.5828 0.2500 # text={M20W28-4}
+fk5; circle 270.6301 -23.3829 0.2500 # text={M20W28-5}
+##fk5; circle 270.6292 -22.9658 0.2500 # text={M20}
+fk5; circle 271.1038 -24.2767 0.2500 # text={M8-1}
+fk5; circle 271.5079 -24.0576 0.2500 # text={M8-2}
+fk5; circle 271.5145 -24.4864 0.2500 # text={M8-3}
+fk5; circle 271.1091 -24.7055 0.2500 # text={M8-4}
+fk5; circle 270.6983 -24.4947 0.2500 # text={M8-5}
+fk5; circle 270.6945 -24.0659 0.2500 # text={M8-6}
+fk5; circle 271.0986 -23.8479 0.2500 # text={M8-7}
+fk5; circle 271.0420 -30.0340 0.2500 # text={Baade}
+fk5; circle 296.2417 -14.8033 0.2500 # text={NGC6822}
