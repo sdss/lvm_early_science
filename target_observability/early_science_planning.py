@@ -254,4 +254,4 @@ for time in date_array:
             ws.cell(row=2, column=j+1).value = '\n'.join(total_observable_targets[time_list[j]]) #save list of targets observable as single string in cell
             ws.cell(row=2, column=j+1).alignment = Alignment(wrapText=True)
 
-wb.save("EarlyScienceObservability.xlsx")
+wb.save("EarlyScienceObservability_standard_constraints.xlsx")
