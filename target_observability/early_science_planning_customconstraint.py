@@ -13,7 +13,7 @@ running with plotting off recommended for large date range
 
 Run as:
 [] ipython
-[] %run early_science_planning start_date(YYY-MM-DD) end_date(YYY-MM-DD) plot?True/False
+[] %run early_science_planning_customconstaint.py start_date(YYY-MM-DD) end_date(YYY-MM-DD) plot?True/False
 """
 ##import packages
 from astropy.coordinates import SkyCoord, get_moon
